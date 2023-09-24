@@ -5,8 +5,8 @@ import { useState } from 'react';
 export default function Calculadora() {
     const [display, setDisplay] = useState("");
     const arrayValueKeyboard = [
-        "7", "8", "9", "/", "",
-         "4", "5", "6", "*", "",
+        "7", "8", "9", "/", "C",
+         "4", "5", "6", "*", "Del",
           "1", "2", "3", "-", "",
            "0", ".", "+", "=",
         ]
