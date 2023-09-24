@@ -17,14 +17,10 @@
 
 .keyboard{
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     gap: 1rem;
     font-size: 1.2rem;
     margin-top: 1rem;
     font-weight: bold;
 }
 
-button.primary{
-    background-color: #ffeec2;
-    color: #c49023;    
-}

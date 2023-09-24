@@ -1,9 +1,19 @@
 import './Button.css'
 
 
-export default function Button(props){
-
-    return(
-        <button onClick={() => props.setState(props.state + props.valueButton)} className={props.valueButton === "0" ? "span2" : '' || props.valueButton === "." ? "primary" : ''}>{props.valueButton}</button>
-    )
+export default function Button({ display, setDisplay, keyButton }) {
+    const selector = keyButton === "0" ? "span2" : '' || isNaN(keyButton) ? "primary" : "";
+    return (<button onClick={() => {
+        if (keyButton === "=") { setDisplay(eval(display)) }
+        else { setDisplay(display + keyButton) }
+    }}
+        className={selector}> {keyButton}</button>)
 }
+
+
+
+/*
+"." ? "primary" : "" ||
+    valueButton === "+" ? "primary" : "" || valueButton === "-" ? "primary" : "" ||
+    valueButton == "*" ? "primary" : "" || valueButton === "/" ? "primary" : "
+*/

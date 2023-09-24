@@ -4,9 +4,18 @@ button{
     background-color: #efefef;
     padding: 0.5rem;
     cursor: pointer;
+    transition: 200ms;
 }
 
+button:hover{
+    opacity: 0.8;
+}
 
 button.span2{
     grid-column: span 2;
+}
+
+button.primary{
+    background-color: #ffeec2;
+    color: #c49023;    
 }
