@@ -2,7 +2,12 @@ import './Button.css'
 
 
 export default function Button({ display, setDisplay, keyButton }) {
-    const selector = keyButton === "0" ? "span2" : '' || isNaN(keyButton) ? "primary" : "";
+    const selector = keyButton === "0" ? "span2" : '' || isNaN(keyButton) ? "primary" : ""
+    /*
+    "." ? "primary" : "" ||
+        valueButton === "+" ? "primary" : "" || valueButton === "-" ? "primary" : "" ||
+        valueButton == "*" ? "primary" : "" || valueButton === "/" ? "primary" : "
+    */
     return (<button onClick={() => {
         switch(keyButton){
             case '=':
@@ -29,8 +34,3 @@ export default function Button({ display, setDisplay, keyButton }) {
 
 
 
-/*
-"." ? "primary" : "" ||
-    valueButton === "+" ? "primary" : "" || valueButton === "-" ? "primary" : "" ||
-    valueButton == "*" ? "primary" : "" || valueButton === "/" ? "primary" : "
-*/
