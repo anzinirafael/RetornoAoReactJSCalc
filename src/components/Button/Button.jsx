@@ -1,7 +1,7 @@
 import './Button.css'
 
 
-export default function Button({ display, setDisplay, keyButton, setError }) {
+export default function Button({ display, setDisplay, keyButton, setError, isShowAdvance, showAdvance }) {
     const selector = keyButton === "0" ? "span2" : '' || isNaN(keyButton) ? "primary" : ""
     /*
     "." ? "primary" : "" ||
@@ -24,6 +24,9 @@ export default function Button({ display, setDisplay, keyButton, setError }) {
                 break
             case 'C':
                 setDisplay("")
+                break
+            case 'Ad':
+                isShowAdvance(!showAdvance);
                 break
             default:
                 setDisplay(display + keyButton)
