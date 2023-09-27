@@ -31,7 +31,7 @@ const regexValidate = /^([0-9]|-|\+|\*|\/|\.)*$/;
                     setDisplay("")
                    } 
                 } } />
-            <span>{error}</span>
+            <span className='error'>{error}</span>
             <div className="keyboard">
                 {calcKeyboard}
             </div>
