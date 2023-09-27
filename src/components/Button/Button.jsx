@@ -9,6 +9,7 @@ export default function Button({ display, setDisplay, keyButton, setError }) {
         valueButton == "*" ? "primary" : "" || valueButton === "/" ? "primary" : "
     */
     return (<button onClick={() => {
+        setError( )
         switch(keyButton){
             case '=':
                 try{
