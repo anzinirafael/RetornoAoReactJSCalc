@@ -1,7 +1,7 @@
 import './Button.css'
 
 
-export default function Button({ display, setDisplay, keyButton }) {
+export default function Button({ display, setDisplay, keyButton, setError }) {
     const selector = keyButton === "0" ? "span2" : '' || isNaN(keyButton) ? "primary" : ""
     /*
     "." ? "primary" : "" ||
@@ -11,8 +11,13 @@ export default function Button({ display, setDisplay, keyButton }) {
     return (<button onClick={() => {
         switch(keyButton){
             case '=':
-                setDisplay(eval(display))
+                try{
+                setDisplay("" + eval(display))
                 break
+                }
+                catch(err){
+                    setError(`Invalid expression: ${err.message}`)
+                }
             case 'Del':
                 setDisplay(display.substring(0, display.length -1))
                 break
