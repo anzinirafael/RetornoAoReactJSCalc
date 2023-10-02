@@ -14,6 +14,8 @@ export default function Calculadora() {
     const [showAdvance, isShowAdvance] = useState(false);
     //Estado responsável por armazenar e retornar o estado de erro quando uma operação inválida é digitada na calculadora
     const [error, setError] = useState();
+    //Estado responsável por armazenar o historico das operações realizadas na calculadora
+    const [history, setHistory] = useState([]);
     //Array responsável por definir os caracteres das teclas principais da calculadora
     const arrayValueKeyboard = [
         "7", "8", "9", "/", "C",
@@ -23,14 +25,15 @@ export default function Calculadora() {
     ]
     //Array responsável por definir os caracteres avançados da calculadora
     const arrayValueKeyboardAdvance = [
-        "(", ")"
+        "(", ")", "Hist"
     ]
     //Estado de efeito colateral em vazio por enquanto
     useEffect(() => {
     }, []);
     //Constante para definição e parametrização de função dos botões que serão chamados pela função map através do array de caracteres
     const calcKeyboard = (valueKeyButton, Key) => <Button key={Key} display={display} setDisplay={setDisplay}
-     keyButton={valueKeyButton} setError={setError} isShowAdvance={isShowAdvance} showAdvance={showAdvance}/>
+     keyButton={valueKeyButton} setError={setError} isShowAdvance={isShowAdvance} showAdvance={showAdvance}
+     history={history} setHistory={setHistory}/>
     //Retorno Javascript + xml JSX, itens renderizados no browser
     return (
         //Definição de uma div responsável por toda estrutura visual da calculadora, div father
@@ -44,6 +47,7 @@ export default function Calculadora() {
                 onKeyPress={event => {
                     if (event.key === "Enter") {
                         try {
+                            setHistory([].concat(history, display))
                             setDisplay("" + eval(display))
                         }
                         catch (err) {

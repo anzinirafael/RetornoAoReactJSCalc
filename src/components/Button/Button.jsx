@@ -1,7 +1,7 @@
 import './Button.css'
 
 
-export default function Button({ display, setDisplay, keyButton, setError, isShowAdvance, showAdvance }) {
+export default function Button({ display, setDisplay, keyButton, setError, isShowAdvance, showAdvance, setHistory, history }) {
     const selector = keyButton === "0" ? "span2" : '' || isNaN(keyButton) ? "primary" : ""
     /*
     "." ? "primary" : "" ||
@@ -13,8 +13,9 @@ export default function Button({ display, setDisplay, keyButton, setError, isSho
         switch(keyButton){
             case '=':
                 try{
-                setDisplay("" + eval(display))
-                break
+                    setHistory([].concat(history, display))
+                    setDisplay("" + eval(display))
+                    break
                 }
                 catch(err){
                     setError(`Invalid expression: ${err.message}`)
@@ -27,6 +28,10 @@ export default function Button({ display, setDisplay, keyButton, setError, isSho
                 break
             case 'Ad':
                 isShowAdvance(!showAdvance);
+                break
+            case 'Hist':
+                setDisplay(history)
+                console.log(history)
                 break
             default:
                 setDisplay(display + keyButton)
